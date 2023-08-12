@@ -1,0 +1,23 @@
+{
+  "name": "jovem-programador",
+  "version": "0.0.1",
+  "description": "Jovem Programador",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gustavopedrini/jovem-programador.git"
+  },
+  "author": "Gustavo Pedrini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gustavopedrini/jovem-programador/issues"
+  },
+  "homepage": "https://github.com/gustavopedrini/jovem-programador#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
