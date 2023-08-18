@@ -14,8 +14,10 @@ app.get('/api/:id/pessoa/:pesoaIdade', (req, res) => {
   });
 });
 
+// criar função para cada um dos 5 exercicios
+
 app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`); 
+  console.log(`Servidor rodando na porta ${port}`);
 });
 
 // 6 - REQ e RES sempre vão existir. Para ignorar o REQ e deixar apenas o RES, basta fazer: (_, res)
