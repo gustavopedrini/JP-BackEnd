@@ -3,6 +3,7 @@ import { valorFinal } from "./Exercicios/exercicio2.js";
 import { somar } from "./Exercicios/exercicio1.js" // a chave serve para selecionar a função q vai importar desse local
 const app = express();
 const port = 3000;
+
 app.use(express.json()); // serve para o computador (burro) interpretar como json pro post
 
 // --- Exercicio 1 --- //
@@ -28,8 +29,19 @@ app.post('/api/exercicio2', (req, res) => {
 });
 
 // --- Exercicio 3 --- //
+app.get('/api/exercicio3', (req, res) => {
+  const pesos = new Array();
+  const cu = new Array();
 
-// ------------------ //
+  for(var i = 1; i < 5; i++){
+    pesos[i] = `peso${i}`;
+    const ok = pesos[i];
+    cu[i] = req.query.ok;
+  }
+
+  res.json({message: `MÉDIA DO PESO DESSAS PESSOAS É: ${cu[i]}`})
+});
+
 // ================== //
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
