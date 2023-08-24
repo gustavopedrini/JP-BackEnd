@@ -1,10 +1,13 @@
 import express from "express"
-import { duracao } from "./Exercicios/exercicio6.js"
-import { pesoTotal } from "./Exercicios/exercicio3.js"
-import { valorFinal } from "./Exercicios/exercicio2.js"
 import { somar } from "./Exercicios/exercicio1.js" // a chave serve para selecionar a função q vai importar desse local
-import {converterMetro, converterCm} from "./Exercicios/exercicio7.js"
+import { valorFinal } from "./Exercicios/exercicio2.js"
+import { pesoTotal } from "./Exercicios/exercicio3.js"
 import { converterFahrenheit } from "./Exercicios/exercicio4.js"
+import { converterKM } from "./Exercicios/exercicio5.js"
+import { duracao } from "./Exercicios/exercicio6.js"
+import {converterMetro, converterCm} from "./Exercicios/exercicio7.js"
+import { tabuada } from "./Exercicios/exercicio8-.js"
+
 const app = express();
 const port = 3000;
 
@@ -39,9 +42,16 @@ app.post('/api/exercicio3', (req, res) => {
 
 // --- Exercicio 4 --- //
 app.post('/api/exercicio4', (req, res) => {
-  const valorFahrenheit = converterFahrenheit(req.body.valorCelsius,);
+  const valorFahrenheit = converterFahrenheit(req.body.valorCelsius);
 
   res.status(200).json({message: `TEMPERATURA EM FAHRENHEIT: ${valorFahrenheit}`})
+});
+
+// --- Exercicio 5 --- //
+app.post('/api/exercicio5', (req, res) => {
+  const valorKM = converterKM(req.body.valorMilhas);
+
+  res.status(200).json({message: `VALOR EM KM: ${valorKM}`})
 });
 
 // --- Exercicio 6 --- //
