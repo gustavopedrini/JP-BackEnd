@@ -1,22 +1,27 @@
-import express from "express"
-import { somar } from "./Exercicios/exercicio1.js" // a chave serve para selecionar a função q vai importar desse local
-import { valorFinal } from "./Exercicios/exercicio2.js"
-import { pesoTotal } from "./Exercicios/exercicio3.js"
-import { converterFahrenheit } from "./Exercicios/exercicio4.js"
-import { converterKM } from "./Exercicios/exercicio5.js"
-import { duracao } from "./Exercicios/exercicio6.js"
-import {converterMetro, converterCm} from "./Exercicios/exercicio7.js"
-import { tabuada } from "./Exercicios/exercicio8.js"
-import { aprovadoReprovado } from "./Exercicios/exercicio9.js"
-import { calcularIMC } from "./Exercicios/exercicio10.js"
-import { calcularOperacao } from "./Exercicios/exercicio11.js"
-import { positivoNegativo } from "./Exercicios/exercicio12.js"
-import { parImpar } from "./Exercicios/exercicio13.js"
-import { maiorNum } from "./Exercicios/exercicio14.js"
-import { verificarTriangulo } from "./Exercicios/exercicio15.js"
-import { calcularImpostoRenda } from "./Exercicios/exercicio16.js"
-import { calcularMediaPonderada } from "./Exercicios/exercicio17.js"
-import { custoCarro } from "./Exercicios/exercicio18.js"
+const express = require('express')
+
+// Importando as funções de cada exercício
+const { somar } = require("./Exercicios/exercicio1.js")
+const { valorFinal } = require("./Exercicios/exercicio2.js")
+const { pesoTotal } = require("./Exercicios/exercicio3.js")
+const { converterFahrenheit } = require("./Exercicios/exercicio4.js")
+const { converterKM } = require("./Exercicios/exercicio5.js")
+const { duracao } = require("./Exercicios/exercicio6.js")
+const {converterMetro, converterCm} = require("./Exercicios/exercicio7.js")
+const { tabuada } = require("./Exercicios/exercicio8.js")
+const { aprovadoReprovado } = require("./Exercicios/exercicio9.js")
+const { calcularIMC } = require("./Exercicios/exercicio10.js")
+const { calcularOperacao } = require("./Exercicios/exercicio11.js")
+const { positivoNegativo } = require("./Exercicios/exercicio12.js")
+const { parImpar } = require("./Exercicios/exercicio13.js")
+const { maiorNum } = require("./Exercicios/exercicio14.js")
+const { verificarTriangulo } = require("./Exercicios/exercicio15.js")
+const { calcularImpostoRenda } = require("./Exercicios/exercicio16.js")
+const { calcularMediaPonderada } = require("./Exercicios/exercicio17.js")
+const { custoCarro } = require("./Exercicios/exercicio18.js")
+const { jurosCapital } = require("./Exercicios/exercicio19.js")
+const { valorTotalIPI } = require("./Exercicios/exercicio20.js")
+const { velocidadeMulta } = require("./Exercicios/exercicio22.js")
 
 const app = express();
 const port = 3000;
@@ -144,6 +149,24 @@ app.post('/api/exercicio17', (req, res) => {
 app.post('/api/exercicio18', (req, res) => {
   const resultado = custoCarro(req.body.custoCarro);
   res.status(200).json({message: `O CUSTO DO CARRO É: ${resultado}`});
+});
+
+// --- Exercicio 19 --- //
+app.post('/api/exercicio19', (req, res) => {
+  const resultado = jurosCapital(req.body.capital, req.body.taxa, req.body.tempo);
+  res.status(200).json(resultado);
+});
+
+// --- Exercicio 20 --- //
+app.post('/api/exercicio20', (req, res) => {
+  const resultado = valorTotalIPI(req.body.percentagem, req.body.cod_peca1, req.body.valor_peca1, req.body.qntde_peca1, req.body.cod_peca2, req.body.valor_peca2, req.body.qntde_peca2);
+  res.status(200).json({message: `O VALOR TOTAL DO IPI É: ${resultado}`});
+});
+
+// --- Exercicio 22 --- //
+app.post('/api/exercicio22', (req, res) => {
+  const resultado = velocidadeMulta(req.body.velPermitida, req.body.velPraticada);
+  res.status(200).json(resultado);
 });
 
 // ================== //

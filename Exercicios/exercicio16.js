@@ -1,6 +1,6 @@
 // 16. FUP que calcule o imposto de renda de um contribuinte. Os dados de entrada são: o CPF(int), o número de dependentes e a renda mensal. Para cada dependente será feito um desconto de 5% do salário mínimo por dependente. 
 
-export function calcularImpostoRenda(cpf, numDependentes, rendaMensal){
+function calcularImpostoRenda(cpf, numDependentes, rendaMensal){
     let salarioMinimo = 1302;
     let aliquota;
     
@@ -22,3 +22,5 @@ export function calcularImpostoRenda(cpf, numDependentes, rendaMensal){
     
     return rendaMensal * aliquota - ((numDependentes * 0.05 ) * salarioMinimo);
 }
+
+module.exports = { calcularImpostoRenda }

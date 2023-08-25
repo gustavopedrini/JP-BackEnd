@@ -2,7 +2,7 @@
 // - para homens: (72.7*h)-58
 // - para mulheres: (62.1*h)-44.7
 
-export function calcularIMC(genero, altura){
+function calcularIMC(genero, altura){
     if(genero == "H"){
         return (72.7*altura)-58;
 
@@ -13,3 +13,5 @@ export function calcularIMC(genero, altura){
         return `O GÊNERO INFORMADO É INVÁLIDO`;
     }
 }
+
+module.exports = { calcularIMC }

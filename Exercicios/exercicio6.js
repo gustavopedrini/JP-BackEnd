@@ -1,6 +1,6 @@
 // 6. FUP que solicite a duração de um evento em segundos e imprima em horas, minutos e segundos;
 
-export function duracao(valorSegundos){
+function duracao(valorSegundos){
     let horas = 0;
     let minutos = 0;
     let segundos = valorSegundos;
@@ -17,3 +17,5 @@ export function duracao(valorSegundos){
 
     return `${parseInt(horas)} HORAS, ${parseInt(minutos)} MINUTOS e ${parseInt(segundos)} SEGUNDOS.`;
 }
+
+module.exports = { duracao }

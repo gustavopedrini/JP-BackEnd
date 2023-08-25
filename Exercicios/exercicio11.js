@@ -1,6 +1,6 @@
 // 11. FUP que solicite a operação (+,-,/,*) e dois numeros, calcule a operação solicitada e informe o resultado;
 
-export function calcularOperacao(operacao, numA, numB){
+function calcularOperacao(operacao, numA, numB){
     switch(operacao){
         case "+":
             return `${numA} + ${numB} = ${numA + numB}`;
@@ -18,3 +18,5 @@ export function calcularOperacao(operacao, numA, numB){
             return `A OPERAÇÃO INFORMADA É INVÁLIDA`;
     }
 }
+
+module.exports = { calcularOperacao }
