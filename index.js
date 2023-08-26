@@ -22,6 +22,10 @@ const { custoCarro } = require("./Exercicios/exercicio18.js")
 const { jurosCapital } = require("./Exercicios/exercicio19.js")
 const { valorTotalIPI } = require("./Exercicios/exercicio20.js")
 const { velocidadeMulta } = require("./Exercicios/exercicio22.js")
+const { escreverBatata } = require("./Exercicios/exercicio23.js")
+const { tabuadaRepeticao } = require("./Exercicios/exercicio24.js")
+const { mediaAltura } = require("./Exercicios/exercicio25.js")
+const { mediaPesos } = require("./Exercicios/exercicio26.js")
 
 const app = express();
 const port = 3000;
@@ -93,8 +97,8 @@ app.post('/api/exercicio8', (req, res) => {
 
 // --- Exercicio 9 --- //
 app.post('/api/exercicio9', (req, res) => {
-  const aba = aprovadoReprovado(req.body.nota1, req.body.nota2, req.body.nota3);
-  res.status(200).json(aba);
+  const resultado = aprovadoReprovado(req.body.notas);
+  res.status(200).json({message: `MÉDIA: ${resultado.media} | ${resultado.situacao}` });
 });
 
 // --- Exercicio 10 --- //
@@ -105,20 +109,20 @@ app.post('/api/exercicio10', (req, res) => {
 
 // --- Exercicio 11 --- //
 app.post('/api/exercicio11', (req, res) => {
-  const resultadoCalculo = calcularOperacao(req.body.operacao, req.body.numA, req.body.numB);
-  res.status(200).json(resultadoCalculo);
+  const resultado = calcularOperacao(req.body.operacao, req.body.numA, req.body.numB);
+  res.status(200).json({message: resultado});
 });
 
 // --- Exercicio 12 --- //
 app.post('/api/exercicio12', (req, res) => {
   const resultado = positivoNegativo(req.body.num);
-  res.status(200).json(resultado);
+  res.status(200).json({message: resultado});
 });
 
 // --- Exercicio 13 --- //
 app.post('/api/exercicio13', (req, res) => {
   const resultado = parImpar(req.body.num);
-  res.status(200).json(resultado);
+  res.status(200).json({message: resultado});
 });
 
 // --- Exercicio 14 --- //
@@ -130,7 +134,7 @@ app.post('/api/exercicio14', (req, res) => {
 // --- Exercicio 15 --- //
 app.post('/api/exercicio15', (req, res) => {
   const resultado = verificarTriangulo(req.body.numA, req.body.numB, req.body.numC, req.body.altura);
-  res.status(200).json(resultado);
+  res.status(200).json({message: resultado});
 });
 
 // --- Exercicio 16 --- //
@@ -154,7 +158,7 @@ app.post('/api/exercicio18', (req, res) => {
 // --- Exercicio 19 --- //
 app.post('/api/exercicio19', (req, res) => {
   const resultado = jurosCapital(req.body.capital, req.body.taxa, req.body.tempo);
-  res.status(200).json(resultado);
+  res.status(200).json({message: resultado});
 });
 
 // --- Exercicio 20 --- //
@@ -163,10 +167,36 @@ app.post('/api/exercicio20', (req, res) => {
   res.status(200).json({message: `O VALOR TOTAL DO IPI É: ${resultado}`});
 });
 
+// --- Exercicio 21 --- //
+
 // --- Exercicio 22 --- //
 app.post('/api/exercicio22', (req, res) => {
   const resultado = velocidadeMulta(req.body.velPermitida, req.body.velPraticada);
-  res.status(200).json(resultado);
+  res.status(200).json({message: resultado});
+});
+
+// --- Exercicio 23 --- //
+app.post('/api/exercicio23', (req, res) => {
+  const resultado = escreverBatata(req.body.num);
+  res.status(200).json({message: resultado});
+});
+
+// --- Exercicio 24 --- //
+app.post('/api/exercicio24', (req, res) => {
+  const resultado = tabuadaRepeticao(req.body.num);
+  res.status(200).json({message: resultado});
+});
+
+// --- Exercicio 25 --- //
+app.post('/api/exercicio25', (req, res) => {
+  const resultado = mediaAltura(req.body.qntdePessoas, req.body.alturas);
+  res.status(200).json({message: `A MÉDIA DAS ALTURAS DESSAS PESSOAS É: ${resultado}m`});
+});
+
+// --- Exercicio 26 --- //
+app.post('/api/exercicio26', (req, res) => {
+  const resultado = mediaPesos(req.body.pesos);
+  res.status(200).json({message: `A MÉDIA DE PESO DESSAS PESSOAS É: ${resultado}kg`});
 });
 
 // ================== //

@@ -14,10 +14,10 @@
 // - Positivo para 8 perguntas, a pessoa deve ser classificada como: "Assassino"
 // - Caso contrário, a pessoa deverá ser classificado como: "Inocente"
 
-function investigacaoCriminal(r1,){
-    let valorTotal = (valor_peca1 * qntde_peca1 + valor_peca2 * qntde_peca2) * (percentagem/100 + 1);
+// function investigacaoCriminal(r1){
+//     let valorTotal = (valor_peca1 * qntde_peca1 + valor_peca2 * qntde_peca2) * (percentagem/100 + 1);
 
-    return valorTotal;
-}
+//     return valorTotal;
+// }
 
-module.exports = { valorTotalIPI }  
+// module.exports = { valorTotalIPI }  
