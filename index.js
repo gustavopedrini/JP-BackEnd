@@ -26,6 +26,10 @@ const { escreverBatata } = require("./Exercicios/exercicio23.js")
 const { tabuadaRepeticao } = require("./Exercicios/exercicio24.js")
 const { mediaAltura } = require("./Exercicios/exercicio25.js")
 const { mediaPesos } = require("./Exercicios/exercicio26.js")
+const { pesoElevador } = require("./Exercicios/exercicio27.js")
+const { numerosNegativos } = require("./Exercicios/exercicio28.js")
+const { numerosAleatorios } = require("./Exercicios/exercicio29.js")
+const { numerosAleatoriosEspecificos } = require("./Exercicios/exercicio30.js")
 
 const app = express();
 const port = 3000;
@@ -198,6 +202,30 @@ app.post('/api/exercicio26', (req, res) => {
   const resultado = mediaPesos(req.body.pesos);
   res.status(200).json({message: `A MÉDIA DE PESO DESSAS PESSOAS É: ${resultado}kg`});
 });
+
+// --- Exercicio 27 --- //
+app.post('/api/exercicio27', (req, res) => {
+  const resultado = pesoElevador(req.body.pesos);
+  res.status(200).json({message: resultado});
+});
+
+// --- Exercicio 28 --- //
+app.post('/api/exercicio28', (req, res) => {
+  const numeros = req.body.numeros;
+  const resultado = numerosNegativos(numeros);
+  res.status(200).json({numbers: numeros, message: resultado});
+});
+
+// --- Exercicio 29 --- //
+app.post('/api/exercicio29', (_, res) => {
+  res.status(200).json({message: `OS NÚMEROS GERADOS FORAM: ${numerosAleatorios()}`});
+});
+
+// --- Exercicio 30 --- //
+app.post('/api/exercicio30', (_, res) => {
+  res.status(200).json({message: `OS NÚMEROS GERADOS FORAM: ${numerosAleatoriosEspecificos()}`});
+});
+
 
 // ================== //
 app.listen(port, () => {
