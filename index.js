@@ -1,6 +1,7 @@
+// Importando o EXPRESS
 const express = require('express')
 
-// Importando as funções de cada exercício
+// Importando as funções dos EXERCÍCIOS
 const { somar } = require("./Exercicios/exercicio1.js")
 const { valorFinal } = require("./Exercicios/exercicio2.js")
 const { pesoTotal } = require("./Exercicios/exercicio3.js")
@@ -21,6 +22,7 @@ const { calcularMediaPonderada } = require("./Exercicios/exercicio17.js")
 const { custoCarro } = require("./Exercicios/exercicio18.js")
 const { jurosCapital } = require("./Exercicios/exercicio19.js")
 const { valorTotalIPI } = require("./Exercicios/exercicio20.js")
+const { investigacaoCriminal } = require("./Exercicios/exercicio21.js")
 const { velocidadeMulta } = require("./Exercicios/exercicio22.js")
 const { escreverBatata } = require("./Exercicios/exercicio23.js")
 const { tabuadaRepeticao } = require("./Exercicios/exercicio24.js")
@@ -31,11 +33,28 @@ const { numerosNegativos } = require("./Exercicios/exercicio28.js")
 const { numerosAleatorios } = require("./Exercicios/exercicio29.js")
 const { numerosAleatoriosEspecificos } = require("./Exercicios/exercicio30.js")
 
+// Importando as funções dos EXERCÍCIOS EXTRAS
+const { somaUmDez } = require("./ListaExtra/Exercicios/exercicioextra1.js")
+const { dobroInteiro } = require('./ListaExtra/Exercicios/exercicioextra2.js')
+const { areaTriangulo } = require('./ListaExtra/Exercicios/exercicioextra3.js')
+
+// Importando as funções dos DESAFIOS
+const { idadeParaDiasMeses } = require("./Desafios/desafio0.js")
+const { trocaValores } = require("./Desafios/desafio1.js")
+const { maiorNumero } = require("./Desafios/desafio2.js")
+const { menorNumero } = require("./Desafios/desafio3.js")
+const { anoBissexto } = require("./Desafios/desafio4.js")
+const { informacoesNumeros } = require("./Desafios/desafio5.js")
+const { valoresFibonacci } = require("./Desafios/desafio6.js")
+const { valoresFibonacciAteDez } = require("./Desafios/desafio7.js")
+const { informacoesNotas } = require("./Desafios/desafio8.js")
+
 const app = express();
 const port = 3000;
 
 app.use(express.json()); // serve para o computador (burro) interpretar como json pro post
 
+// =========== EXERCÍCIOS =========== //
 // --- Exercicio 1 --- //
 app.post('/api/exercicio1', (req, res) => {
   const result = somar(req.body.numA, req.body.numB);
@@ -172,6 +191,10 @@ app.post('/api/exercicio20', (req, res) => {
 });
 
 // --- Exercicio 21 --- //
+app.post('/api/exercicio21', (req, res) => {
+  const resultado = investigacaoCriminal(req.body.respostas);
+  res.status(200).json({message: resultado});
+})
 
 // --- Exercicio 22 --- //
 app.post('/api/exercicio22', (req, res) => {
@@ -226,6 +249,85 @@ app.post('/api/exercicio30', (_, res) => {
   res.status(200).json({message: `OS NÚMEROS GERADOS FORAM: ${numerosAleatoriosEspecificos()}`});
 });
 
+// =========== EXERCÍCIOS EXTRAS =========== //
+// --- Exercicio 1 --- //
+app.post('/api/exercicioextra1', (_, res) => {
+  res.status(200).json({message: `A SOMA DOS NÚMEROS DE 1 A 10 É:  ${somaUmDez()}`});
+});
+
+// --- Exercicio 2 --- //
+app.post('/api/exercicioextra2', (req, res) => {
+  const resultado = dobroInteiro(req.body.num);
+  res.status(200).json({message: `${resultado}`});
+});
+
+// --- Exercicio 3 --- //
+app.post('/api/exercicioextra3', (req, res) => {
+  const resultado = areaTriangulo(req.body.base, req.body.altura);
+  res.status(200).json({message: `A ÁREA DO TRIÂNGULO É: ${resultado}`});
+});
+
+// =========== DESAFIOS =========== //
+// --- Desafio 0 --- //
+app.post('/api/desafio0', (req, res) => {
+  const resultado = idadeParaDiasMeses(req.body.idade);
+  res.status(200).json({message: `${resultado}`});
+});
+
+// --- Desafio 1 --- //
+app.post('/api/desafio1', (req, res) => {
+  const resultado = trocaValores(req.body.numeros);
+  res.status(200).json({message: `${resultado}`});
+});
+
+// --- Desafio 2 --- //
+app.post('/api/desafio2', (req, res) => {
+  const resultado = maiorNumero(req.body.numeros);
+  res.status(200).json({message: `${resultado}`});
+});
+
+// --- Desafio 3 --- //
+app.post('/api/desafio3', (req, res) => {
+  const resultado = menorNumero(req.body.numeros);
+  res.status(200).json({message: `${resultado}`});
+});
+
+// --- Desafio 4 --- //
+app.post('/api/desafio4', (req, res) => {
+  const resultado = anoBissexto(req.body.ano);
+  res.status(200).json({message: `${resultado}`});
+});
+
+// --- Desafio 5 --- //
+app.post('/api/desafio5', (req, res) => {
+  const resultado = informacoesNumeros(req.body.numeros);
+  res.status(200).json({message: `${resultado}`});
+});
+
+// --- Desafio 6 --- //
+app.post('/api/desafio6', (req, res) => {
+  const resultado = valoresFibonacci(req.body.qntdeTermos);
+  res.status(200).json({message: `OS NÚMEROS GERADOS FORAM: ${resultado}`});
+});
+
+// --- Desafio 7 --- //
+app.post('/api/desafio7', (_, res) => {
+  res.status(200).json({message: `${valoresFibonacciAteDez()}`});
+});
+
+// --- Desafio 8 --- //
+app.post('/api/desafio8', (req, res) => {
+  const resultado = informacoesNotas(req.body.notas);
+  res.status(200).json({
+    maiorNota: resultado.maiorNota,
+    menorNota: resultado.menorNota,
+    mediaNotas: resultado.media,
+    maioresNotas: resultado.maioresNotas,
+    menoresNotas: resultado.menoresNotas
+  });
+});
+
+// =========== DESAFIOS EXTRAS =========== //
 
 // ================== //
 app.listen(port, () => {
