@@ -10,4 +10,4 @@ function velocidadeMulta(velPermitida, velPraticada){
     }
 }
 
-module.exports = { velocidadeMulta }  
+module.exports = { velocidadeMulta }
