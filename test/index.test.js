@@ -12,9 +12,8 @@ describe('Testes do Primeiro Exercício', () => {
     });
   
     it('Deve somar dois números', () => {
-    const result = somar(1, 2);
-
-    expect(result).toBe(3);
+        const result = somar(1, 2);
+        expect(result).toBe(3);
     });
 
 });

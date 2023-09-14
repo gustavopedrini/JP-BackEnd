@@ -22,6 +22,7 @@ const { custoCarro } = require("./Exercicios/exercicio18.js")
 const { jurosCapital } = require("./Exercicios/exercicio19.js")
 const { valorTotalIPI } = require("./Exercicios/exercicio20.js")
 const { velocidadeMulta } = require("./Exercicios/exercicio22.js")
+const { verificarMensagem } = require("./Exercicios/exercicio23.js")
 
 const app = express();
 const port = 3000;
@@ -166,6 +167,12 @@ app.post('/api/exercicio20', (req, res) => {
 // --- Exercicio 22 --- //
 app.post('/api/exercicio22', (req, res) => {
   const resultado = velocidadeMulta(req.body.velPermitida, req.body.velPraticada);
+  res.status(200).json(resultado);
+});
+
+// --- Exercicio 23 --- //
+app.post('/api/exercicio23', (req, res) => {
+  const resultado = verificarMensagem(req.body.mensagem);
   res.status(200).json(resultado);
 });
 
