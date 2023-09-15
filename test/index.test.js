@@ -16,5 +16,7 @@ describe('Testes do Primeiro Exercício', () => {
         expect(result).toBe(3);
     });
 
-});
 
+    // () => serve pra atrasar função
+
+});
